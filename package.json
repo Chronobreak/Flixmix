@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Greenfield Project",
   "main": "index.js",
+  "start": "node index.js",
   "scripts": {
     "dev-start": "nodemon index.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "start": "node index.js"
   },
   "author": "Kingdom of Gondor",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "react-beautiful-dnd": "^8.0.5",
     "webpack": "^2.2.1"
   },
   "dependencies": {
@@ -26,6 +29,8 @@
     "mysql": "^2.15.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-grid-gallery": "^0.5.1",
+    "react-sortable-hoc": "^0.8.3",
     "react-tooltip": "^3.6.1",
     "react-youtube": "^7.6.0"
   }

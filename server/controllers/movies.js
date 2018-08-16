@@ -17,7 +17,8 @@ module.exports = {
     };
 
     let shortURL, playlistID;
-    let { movieArr, user_id } = req.body;
+    let { movieArr, user_id, listname} = req.body;
+    if (user_id === "") user_id = 62 //anon 
     // let arrayOfMovieValues = movieArr.map((object) =>  Object.values(object))
     let arrayOfMovieValues = sanitizeMovieArray(movieArr);
 
@@ -30,7 +31,7 @@ module.exports = {
         return movieModels.insertMoviesIntoMovieTable(arrayOfMovieValues);
       })
       .then(() =>
-        movieModels.insertPlaylistURLintoPlaylistTable(shortURL, user_id)
+        movieModels.insertPlaylistURLintoPlaylistTable(shortURL, user_id, listname)
       )
       .then(idOfPlaylist => {
         playlistID = idOfPlaylist;
@@ -42,11 +43,19 @@ module.exports = {
           playlistID
         );
       })
-      .then(() => res.send())
-      .catch(err => res.send(err))
-      .catch(err => res.send(err))
-      .catch(err => res.send(err))
-      .catch(err => res.send(err));
+      .then(() => res.send(shortURL))
+      .catch(err => {
+        console.log(err)
+        res.sendStatus(404)})
+      .catch(err => {
+        console.log(err)
+        res.sendStatus(404)})
+      .catch(err => {
+        console.log(err)
+        res.sendStatus(404)})
+      .catch(err => {
+        console.log(err)
+        res.sendStatus(404)})
   }
 };
 

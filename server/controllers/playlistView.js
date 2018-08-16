@@ -1,6 +1,6 @@
 const model = require('../models/playlistView')
 const axios = require('axios');
-// const youtubeKey = require('../../config/mitch_youtube_api_key').YOUTUBE_KEY;
+const youtubeKey = require('../../config/mitch_youtube_api_key').YOUTUBE_KEY;
 
 module.exports = {
   getPlaylistFromUrl: (req, res) => {
@@ -8,11 +8,11 @@ module.exports = {
     let userId = req.query.userId || 62;
     //step one get the movies the user has watched already in prep of displaying dynamic playlist
     //including watched data
-    model.haveWatched(userId, (err, movieIds) => {
-      if (err) {
-        console.error('there was an error fetching the watched movies for this user', err)
-      } else {
-        let watchedMovies = movieIds;
+    // model.haveWatched(userId, (err, movieIds) => {
+    //   if (err) {
+    //     console.error('there was an error fetching the watched movies for this user', err)
+    //   } else {
+    //     let watchedMovies = movieIds;
         //step one - fetch the playlist id and name for the given url
         model.fetchPlaylist(playlistUrl, (err, playlistAndUserId) => {
           if (err) {
@@ -57,9 +57,9 @@ module.exports = {
                           }
                         }
                         //if this has already been watched, flip the watched flag
-                        if (watchedMovies[movieToAdd.movieInfo.movieId]) {
-                          movieToAdd.watched = true;
-                        }
+                        // if (watchedMovies[movieToAdd.movieInfo.movieId]) {
+                        //   movieToAdd.watched = true;
+                        // }
                         finalPlaylist.movies.push(movieToAdd);
                         if (i === collection.length-1) {
                           res.send(finalPlaylist)
@@ -72,9 +72,9 @@ module.exports = {
             })
           }
         })
-      }
-    })          
-  },
+      },
+    // })          
+  // },
   addWatchedMovie: (req, res) => {
     model.addWatched(req.body, (err, success) => {
       if (err) {
@@ -123,26 +123,29 @@ module.exports = {
         res.send();
       }
     })
-  }, 
+  },
   getPlaylistDetails: (req, res) => {
     model.fetchPlaylist(req.query.url, (err, playlistAndUserId) => {
       if (err) {
         console.error('there was an error getting the playlist id from the db', err)
       } else {
+        console.log(playlistAndUserId)
         details = {
-          playlistId: playlistAndUserId.playlist_id,
-          playlistTitle: playlistAndUserId.listname,
-          playlistCreateorId: playlistAndUserId.users_users_id,
+          playlistId: playlistAndUserId[0].playlist_id,
+          playlistTitle: playlistAndUserId[0].listname,
+          playlistCreateorId: playlistAndUserId[0].users_users_id,
         }
         res.send(details)
       }
     })
   },
   getPlaylistMovies: (req, res) => {
-    model.fetchPlaylistMovieIds(req.query.playlistId , (err, movieIds) => {
+    console.log('query id', req.query)
+    model.fetchPlaylistMovieIds(req.query.id , (err, movieIds) => {
       if (err) {
         console.error('there was an get the movies for the given playlist id', err);
       } else {
+        console.log('movie ids', movieIds)
         res.send(movieIds)
       }
     })

@@ -1,23 +1,29 @@
-import React from 'react';
+import React from "react";
+import genCard from "./genCard.jsx"
 
-let SearchResults = (props) => {
+let SearchResults = props => {
+  console.log(genCard)
   return (
     <div>
-    <ul>
-    {
-      props.movies.map((movie) => {
-        return (
-          <li onClick={() => {props.add(movie)}}>
-            {movie.title} - Release date: {movie.release_date} - Popularity: {movie.popularity}
-            <img src={'https://image.tmdb.org/t/p/w500'+movie.poster_path}></img>
-          </li>
-        )
-      })
-    }
-    </ul>
+      <ul className="loost">
+        {props.movies.map(movie => {
+          return (
+            <li
+              className="animate fadeInLeft"
+              style={{
+                marginBottom: "10px"
+              }}
+              onClick={() => {
+                props.add(movie);
+              }}
+            >
+              {genCard(movie)}
+            </li>
+          );
+        })}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-
-export default SearchResults
+export default SearchResults;

@@ -54,6 +54,18 @@ FlixMixRouter.route('/movieDetails')
 FlixMixRouter.route('/haveWatched')
     .get(PlaylistViewController.getWatchedMovies)
 
+FlixMixRouter.route('fetchUsername')
+    .get(PlaylistViewController.getUsername)
+
+FlixMixRouter.route('/playlistMovieIds')
+    .post(PlaylistViewController.getPlaylistMovies)
+
+FlixMixRouter.route('/movieDetails')
+    .get(PlaylistViewController.getMovieDetails)
+
+FlixMixRouter.route('/haveWatched')
+    .get(PlaylistViewController.getWatchedMovies)
+
 FlixMixRouter.route('/fetchUsername')
     .get(PlaylistViewController.getUsername)
 

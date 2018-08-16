@@ -11,10 +11,10 @@ const insertMoviesIntoMovieTable = (arrayOfMovies) => {
   })
 }
 
-const insertPlaylistURLintoPlaylistTable = (url, user_id) => {
+const insertPlaylistURLintoPlaylistTable = (url, user_id, listname) => {
   return new Promise((resolve, reject) => {
-    let queryAddURLToPlaylistTable = 'INSERT INTO playlist (url, users_users_id) VALUES (?, ?)';
-    db.connection.query(queryAddURLToPlaylistTable, [url, user_id], (err, data) => {
+    let queryAddURLToPlaylistTable = 'INSERT INTO playlist (url, users_users_id, listname) VALUES (?, ?, ?)';
+    db.connection.query(queryAddURLToPlaylistTable, [url, user_id, listname], (err, data) => {
       if (err) reject(err)
       else {
         // This helps parse the OK packet object into an array.

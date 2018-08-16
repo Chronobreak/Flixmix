@@ -7,27 +7,46 @@ const config = {
   database: "heroku_69ec92a76fd7e58"
 };
 
-const connection = mysql.createConnection(config); 
 
 const handleDisconnect = () => {
+  const connection = mysql.createConnection(config); 
   connection.connect(function(err) {
     if (err) {
-      console.log("error when connecting to db:", err);
-      setTimeout(handleDisconnect, 2000); 
+      console.log("error when connecting to db")
+      setTimeout(() => handleDisconnect2, 6000); 
     } 
   });
   connection.on("error", function(err) {
-    console.log("db error", err);
+    console.log("db error, trying to reconnect");
     if (err.code === "PROTOCOL_CONNECTION_LOST") {
       handleDisconnect(); 
     } else {
       throw err; 
     }
   });
+  return connection;
 }
 
-exports.handleDisconnect = handleDisconnect;
+const handleDisconnect2 = () => {
+  const connection = mysql.createConnection(config); 
+  connection.connect(function(err) {
+    if (err) {
+      console.log("error when connecting to db2")
+      setTimeout(handleDisconnect, 6000); 
+    } 
+  });
+  connection.on("error", function(err) {
+    console.log("db error, trying to reconnect");
+    if (err.code === "PROTOCOL_CONNECTION_LOST") {
+      handleDisconnect(); 
+    } else {
+      throw err; 
+    }
+  });
+  return connection;
+}
+handleDisconnect();
 
-exports.connection = connection;
+exports.connection = handleDisconnect();
 
 

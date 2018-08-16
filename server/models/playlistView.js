@@ -1,30 +1,31 @@
 const db = require('../database/db.js');
 
-
+console.log(db)
 //takes in in playlist url and geths the playlist id
 function fetchPlaylist(playlistUrl, callback) {
-  db.connection.query('SELECT * FROM playlist WHERE ?', {url: playlistUrl}, (err, results, fields) => {
+  db.connection.query('SELECT * FROM playlist WHERE url = ?', [playlistUrl], (err, results) => {
     if (err) {
       callback(err, null)
     } else {
-      callback(null, results[0])
+      callback(null, results)
     }
   })
 }
 
 
-//takes in playlist ids and returns all movie ids
+//takes in playlist ids and returns all movies
 function fetchPlaylistMovieIds(params, callback) {
-  db.connection.query('SELECT movies_movies_id FROM movies_playlists WHERE ?', {playlist_playlist_id: params}, (err, dbMovieIds) => {
+  console.log(params)
+  db.connection.query('SELECT movies.* FROM movies JOIN movies_playlists ON movies.movies_id = movies_playlists.movies_movies_id WHERE movies_playlists.playlist_playlist_id = ?', [params], (err, dbMovieIds) => {
     if (err) {
       callback(err, null)
     } else {
       //response is reutrned as an array of "RowDataPacket { movies_movies_id: 342 }""
-      let movieIds = [];
-      for (let i = 0; i < dbMovieIds.length; i++) {
-        movieIds.push(dbMovieIds[i].movies_movies_id);
-      }
-      callback(null, movieIds);
+      // let movieIds = [];
+      // for (let i = 0; i < dbMovieIds.length; i++) {
+      //   movieIds.push(dbMovieIds[i].movies_movies_id);
+      // }
+      callback(null, dbMovieIds);
     }
   })
 }
