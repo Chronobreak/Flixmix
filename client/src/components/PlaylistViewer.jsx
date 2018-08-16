@@ -8,22 +8,6 @@ class PlaylistView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playlist: {
-        title: null,
-        user: null,
-        movies: [
-          {
-            movieInfo: {
-              movieId: null,
-              title: "",
-              posterPath: "",
-              releaseDate: ""
-            },
-            watched: false,
-            showComment: false
-          }
-        ]
-      },
       movies: [],
       playlistDetails: {},
       currentComment: "",
@@ -71,7 +55,7 @@ class PlaylistView extends React.Component {
 
     //set up all variables we'll use in this function
     let currentMovieId = this.state.playlist.movies[index].movieInfo.movieId;
-    let currentUserId = this.props.user_id || 62;
+    let currentUserId = this.props.user_id || 1;
     let currentUsername = this.props.username || "Anon";
     let playlistAuthorId = this.state.playlist.authorId;
     let movieReviewed = this.state.playlist.movies[index].movieInfo.title.slice(
@@ -139,13 +123,13 @@ class PlaylistView extends React.Component {
   //fetches playlists username
   fetchUsers() {
     axios
-      .get("/flixmix/fetchUsername", { params: { userId: 62 } })
+      .get("/flixmix/fetchUsername", { params: { userId: 1 } })
       .then(({ data }) => this.setState({ author: data }));
   }
 
   //fetches the playlist details
   fetchPlaylist() {
-    let currentUserId = this.props.user_id || 62;
+    let currentUserId = this.props.user_id || 1;
     let playlistUrl = this.props.endpoint;
     axios
       .get("flixmix/playlistDetails", {
@@ -154,14 +138,15 @@ class PlaylistView extends React.Component {
         }
       })
       .then(res => {
+        console.log('playlist details response', res.data)
         this.setState({ playlistDetails: res.data });
+        console.log('state', this.state)
         this.fetchMovies();
       });
   }
 
   //fetches the movies for a playlist
   fetchMovies() {
-    console.log("firing", this.state.playlistDetails);
     axios
       .get("flixmix/playlistMovieIds", {
         params: {
@@ -239,7 +224,7 @@ class PlaylistView extends React.Component {
               marginLeft: "10px",              marginBottom: "10px"
             }}
           >
-            {this.state.playlistDetails.listname}{" "}
+            {this.state.playlistDetails.playlistTitle}{" "}
             {this.state.author ? `by ${this.state.author}` : null}
           </span>
           {this.state.movies.map((movie,index) => {

@@ -5,7 +5,7 @@ const youtubeKey = require('../../config/mitch_youtube_api_key').YOUTUBE_KEY;
 module.exports = {
   getPlaylistFromUrl: (req, res) => {
     let playlistUrl = req.query.url;
-    let userId = req.query.userId || 62;
+    let userId = req.query.userId || 1;
     //step one get the movies the user has watched already in prep of displaying dynamic playlist
     //including watched data
     // model.haveWatched(userId, (err, movieIds) => {
@@ -125,7 +125,11 @@ module.exports = {
     })
   },
   getPlaylistDetails: (req, res) => {
-    model.fetchPlaylist(req.query.url, (err, playlistAndUserId) => {
+    let playlistUrl = req.query.url
+    if (playlistUrl[0] === '=') {
+      playlistUrl = playlistUrl.substr(1);
+    }
+    model.fetchPlaylist(playlistUrl, (err, playlistAndUserId) => {
       if (err) {
         console.error('there was an error getting the playlist id from the db', err)
       } else {

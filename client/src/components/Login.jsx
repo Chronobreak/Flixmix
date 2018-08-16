@@ -30,7 +30,7 @@ class Login extends React.Component {
       : "column is-ancestor is-4 is-offset-8";
 
     return (
-      <div className="column is-ancestor is-4 is-offset-8" style={Style}>
+      <div className="column is-ancestor is-4 is-offset-8 login-hover" style={Style}>
         <div className={classes2} style={secondStyle}>
           <p className="control has-icons-left column is-parent is-vertical arrow_box">
             <input

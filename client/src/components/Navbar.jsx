@@ -65,7 +65,7 @@ class Navbar extends React.Component {
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </a>
-          <a className="navbar-item" onMouseEnter={this.props.handleHover} onClick={this.componentPersist}  style={{ left: "80%" }} href="#">
+          <a className="navbar-item login" onMouseEnter={this.props.handleHover} onClick={this.componentPersist}  style={{ left: "80%" }} href="#">
             <i className="fa fa-key" style={{ fontSize: "20px" }} />
             <font className="subtitle is-3" > login</font>
           </a>

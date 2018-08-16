@@ -9674,4 +9674,16 @@ label.panel-block:hover {
   height: 300px;
 }
 
+.login{
+  position: fixed;
+  right: 75px; 
+  top: 10px;
+}
+
+.login-hover{
+  position: fixed;
+  right: 75px; 
+  top: 70px;
+}
+
 /*# sourceMappingURL=bulma.css.map */
