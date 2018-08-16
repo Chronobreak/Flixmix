@@ -21,7 +21,7 @@ class PlaylistView extends React.Component {
     this.fetchUsers = this.fetchUsers.bind(this);
     this.fetchMovies = this.fetchMovies.bind(this);
     this.openModal = this.openModal.bind(this);
-    // this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     // this.handleCommentCancel = this.handleCommentCancel.bind(this);
   }
@@ -40,31 +40,31 @@ class PlaylistView extends React.Component {
   //   });
   // }
 
-  // //this function is also no longer used, in a previous state of the app
-  // //it would tell you how many characters you have left for your comment
-  // handleCommentChange(event) {
-  //   this.setState({
-  //     currentComment: event.target.value,
-  //     charactersLeft: 250 - this.state.currentComment.length
-  //   });
-  // }
+  //this function is also no longer used, in a previous state of the app
+  //it would tell you how many characters you have left for your comment
+  handleCommentChange(event) {
+    this.setState({
+      currentComment: event.target.value,
+      charactersLeft: 250 - event.target.value.length
+    });
+  }
 
   //this was also used in a previous state of the app, but is ready to use to submit a comment to the db
   handleCommentSubmit(event, index, messageText) {
     event.preventDefault();
 
+    console.log(this.state)
     //set up all variables we'll use in this function
-    let currentMovieId = this.state.playlist.movies[index].movieInfo.movieId;
+    let currentMovieId = this.state.movies[index].movies_id;
     let currentUserId = this.props.user_id || 1;
     let currentUsername = this.props.username || "Anon";
-    let playlistAuthorId = this.state.playlist.authorId;
-    let movieReviewed = this.state.playlist.movies[index].movieInfo.title.slice(
-      0,
-      30
-    );
+    let playlistAuthorId = this.state.playlistDetails.playlistCreatorId;
+    let movieReviewed = this.state.movies[index].original_title.slice(0,30);
     let message = `${currentUsername} thought this about ${movieReviewed}: ${
       this.state.currentComment
     }`;
+
+
 
     axios
       .post("flixmix/watched", {
@@ -91,6 +91,7 @@ class PlaylistView extends React.Component {
       })
       .then(response => {
         console.log("the message was successfully added");
+
       })
       .catch(err => {
         console.error(
@@ -98,13 +99,11 @@ class PlaylistView extends React.Component {
           err
         );
       });
-    let updatedPlaylist = this.state.playlist;
-    updatedPlaylist.movies[index].showComment = false;
-    this.setState({
-      charactersLeft: 250,
-      currentComment: "",
-      playlist: updatedPlaylist
-    });
+      this.setState({
+        charactersLeft: 250,
+        currentComment: "",
+      });
+
   }
 
   // //this function was also used in a previous state of the app 
@@ -138,9 +137,7 @@ class PlaylistView extends React.Component {
         }
       })
       .then(res => {
-        console.log('playlist details response', res.data)
         this.setState({ playlistDetails: res.data });
-        console.log('state', this.state)
         this.fetchMovies();
       });
   }
@@ -154,7 +151,6 @@ class PlaylistView extends React.Component {
         }
       })
       .then(({ data }) => {
-        console.log('movie data', data)
         this.fetchUsers();
         this.setState({ movies: data });
       });
@@ -259,17 +255,14 @@ class PlaylistView extends React.Component {
                     />{" "}
                   </div>
                   <div className="column">
-                    <p className="subtitle" style={{ marginTop: "10px" }}>
-                      Leave a comment after you watch it!
-                    </p>
-                    <input className="textarea" type="text" />
-                    <button
-                      className="button is-warning"
-                      style={{ marginTop: "10px" }}
-                    >
-                      {" "}
-                      Submit Comment
-                    </button>
+                    <form onSubmit={(e)=>this.handleCommentSubmit(e, index)}>
+                      <label className="subtitle" style={{ marginTop: "10px" }}>
+                      Let us know what you thought after you watch!
+                      Characters left: {this.state.charactersLeft}
+                      <input className="textarea movie-comment" type="text" value={this.state.currentComment} onChange={this.handleCommentChange} />
+                      <input type="submit" value="Submit" className="button is-warning" style={{ marginTop: "10px" }}/>
+                      </label>
+                    </form> 
                   </div>
                   <div style={{ visibility: "hidden" }}>o</div>
                 </div>
