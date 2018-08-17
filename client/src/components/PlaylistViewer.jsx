@@ -257,8 +257,8 @@ class PlaylistView extends React.Component {
                   <div className="column">
                     <form onSubmit={(e)=>this.handleCommentSubmit(e, index)}>
                       <label className="subtitle" style={{ marginTop: "10px" }}>
-                      Let us know what you thought after you watch!
-                      Characters left: {this.state.charactersLeft}
+                      Let us know what you thought after you watch! <br />
+                      <small> Characters left: {this.state.charactersLeft}</small>
                       <input className="textarea movie-comment" type="text" value={this.state.currentComment} onChange={this.handleCommentChange} />
                       <input type="submit" value="Submit" className="button is-warning" style={{ marginTop: "10px" }}/>
                       </label>

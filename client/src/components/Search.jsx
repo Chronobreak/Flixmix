@@ -16,7 +16,7 @@ let Search = props => {
             backgroundColor: "#fdf6e3"
             // backgroundColor: "#e4e4e4"
           }}
-          placeholder="&#xf002;"
+          placeholder="Search for movies here!"
           onChange={props.updateUserInput}
         />
       </form>

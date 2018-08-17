@@ -13,7 +13,7 @@ let ShareModal = (props) => {
           </div>
           <div className="message-body">
           Share your awesome playlist with this link:
-          <pre><a href={`/?code=${props.url}`}>{props.url}</a></pre>
+          <pre><a href={`/?code=${props.url}`}>{`movies.andrewmitchell.io/?code=${props.url}`}</a></pre>
           </div>
         </div>
       </div>

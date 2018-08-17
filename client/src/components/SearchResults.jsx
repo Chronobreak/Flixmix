@@ -2,7 +2,6 @@ import React from "react";
 import genCard from "./genCard.jsx"
 
 let SearchResults = props => {
-  console.log(genCard)
   return (
     <div>
       <ul className="loost">
