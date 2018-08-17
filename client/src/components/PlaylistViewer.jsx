@@ -53,7 +53,6 @@ class PlaylistView extends React.Component {
   handleCommentSubmit(event, index, messageText) {
     event.preventDefault();
 
-    console.log(this.state)
     //set up all variables we'll use in this function
     let currentMovieId = this.state.movies[index].movies_id;
     let currentUserId = this.props.user_id || 1;
@@ -89,10 +88,7 @@ class PlaylistView extends React.Component {
         messageReceiverId: playlistAuthorId,
         movieId: currentMovieId
       })
-      .then(response => {
-        console.log("the message was successfully added");
-
-      })
+      .then(response => {})
       .catch(err => {
         console.error(
           "there was an error posting this message to the database",

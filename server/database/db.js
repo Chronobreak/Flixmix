@@ -1,10 +1,10 @@
 const mysql = require("mysql");
 const config = require("../../config/config.js");
 const dbConfig = {
-  host: config.dbConfig.host,
-  user: config.dbConfig.user,
-  password: config.dbConfig.password,
-  database: config.dbConfig.database,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DATABASE,
   port: '3306'
 };
 

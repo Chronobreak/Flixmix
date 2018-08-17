@@ -100,7 +100,7 @@ class App extends React.Component {
           isLoggedIn: true
         });
       })
-      .then(result => console.log("Console logging signup: ", result))
+      .then(result => {})
       .catch(err => console.log(err));
   }
 
@@ -176,10 +176,6 @@ class App extends React.Component {
   }
 
   sendPlaylist() {
-    console.log(
-      "movies to send",
-      this.state.playlist.map(e => e.original_title)
-    );
     axios
       .post("/flixmix/createPlaylist", {
         movieArr: this.state.playlist,
@@ -206,7 +202,6 @@ class App extends React.Component {
 
     axios.get('/session')
     .then((result) => {
-      console.log("Console logging result.data: ", result.data)
       this.setState({
         user_id: result.data.user_id,
         username: result.data.username,
@@ -216,7 +211,6 @@ class App extends React.Component {
 
     axios.get('/session')
     .then((result) => {
-      console.log("Console logging result.data: ", result.data)
       this.setState({
         user_id: result.data.user_id,
         username: result.data.username,
