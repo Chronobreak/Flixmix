@@ -59,14 +59,12 @@ class App extends React.Component {
 
   login(e, username, password) {
     e.preventDefault()
-    console.log('hello login', username, password)
     this.setState({
       loginHover: !this.state.loginHover
     })
     let body = {username,  password}
     axios.post('flixmix/login', body)
     .then(response => {
-      console.log('response', response)
       this.setState(
       {
       user_id: response.data[0].users_id,
