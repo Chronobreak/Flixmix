@@ -222,6 +222,7 @@ class PlaylistView extends React.Component {
           {this.state.movies.map((movie,index) => {
             return (
               <div
+                key={movie.movies_id}
                 className="message card is-warning sarah"
                 style={{
                   marginLeft: "10px"

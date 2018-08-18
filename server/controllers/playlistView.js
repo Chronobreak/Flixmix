@@ -1,5 +1,6 @@
 const model = require('../models/playlistView')
 const axios = require('axios');
+// const config = require('../../config/config.js');
 const youtubeKey = process.env.YOUTUBE_KEY;
 
 module.exports = {
@@ -95,7 +96,7 @@ module.exports = {
         res.send(videoId);
       })
     .catch((error) => {
-      console.log('there was an error hitting the youtube api from the server', error)
+      console.log('there was an error hitting the youtube api from the server', error.response.data.error)
     })
   },
 

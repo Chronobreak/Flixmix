@@ -1,4 +1,5 @@
 const axios = require('axios')
+// const config = require('../../config/config.js');
 const API = process.env.MOVIE_KEY;
 
 // Search component controller
