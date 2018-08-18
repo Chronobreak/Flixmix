@@ -3,6 +3,7 @@ const userController = require('../models/users.js');
 
 module.exports = {
   checkUserCredentials: (req, res) => {
+    console.log('req.body', req.query, req.body, req.params)
     db.getConnection((err, connection) => {
       if (err) {
         console.log('there was an error getting a connection from the pool', err);
@@ -13,6 +14,7 @@ module.exports = {
           if (err) {
             console.log(err)
           } else {
+            console.log('data', data)
             res.send(data)
           }
         }) 
