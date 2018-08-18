@@ -8,7 +8,7 @@ const API = process.env.MOVIE_KEY;
 
 module.exports = {
   searchAPI: (req, res) => {
-    let address = `https://api.themoviedb.org/3/search/movie/?query=${req.body.search}&sort_by=vote_average.asc&api_key=${API.api_key}`
+    let address = `https://api.themoviedb.org/3/search/movie/?query=${req.body.search}&sort_by=vote_average.asc&api_key=${API}`
     axios.get(address)
       .then((result) => {
         res.send(result.data)
