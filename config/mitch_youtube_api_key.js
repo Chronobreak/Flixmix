@@ -1,3 +1,0 @@
-const YOUTUBE_KEY = 'AIzaSyBOSGIFQvWYZXiSm1yrNy0Wr34g8xbts4s';
-
-exports.YOUTUBE_KEY = YOUTUBE_KEY;
