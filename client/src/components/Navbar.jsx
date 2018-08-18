@@ -52,7 +52,7 @@ class Navbar extends React.Component {
           <a className="navbar-item" href="#" onClick={this.props.toggleExplore}>
             <font className="subtitle is-3">/ explore</font>
           </a>
-          <a className="navbar-item" href="https://github.com/Kingdom-of-Gondor/Flixmix">
+          <a className="navbar-item" href="https://github.com/mitch292/Flixmix">
             <font className="subtitle is-3">/ about</font>
           </a>
           <a

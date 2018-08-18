@@ -59,9 +59,14 @@ class App extends React.Component {
 
   login(e, username, password) {
     e.preventDefault()
+    console.log('hello login', username, password)
+    this.setState({
+      loginHover: !this.state.loginHover
+    })
     let body = {username,  password}
     axios.post('flixmix/login', body)
     .then(response => {
+      console.log('response', response)
       this.setState(
       {
       user_id: response.data[0].users_id,
@@ -75,6 +80,7 @@ class App extends React.Component {
       axios.post('/session', sessionInfo)
     })
     .catch(err => console.log(err))
+
   }
 
   logout() {
@@ -90,6 +96,7 @@ class App extends React.Component {
 
   signup(e, username, password) {
     e.preventDefault();
+    this.setState({loginHover: !this.state.loginHover})
     let body = { username, password };
     axios
       .post("flixmix/signup", body)
@@ -102,6 +109,7 @@ class App extends React.Component {
       })
       .then(result => {})
       .catch(err => console.log(err));
+
   }
 
   // Search component helper functions
@@ -238,11 +246,11 @@ class App extends React.Component {
       {this.state.generatedLink ?
       (<ShareModal url={this.state.generatedLink} close={this.closeModal}/>) :
       null}
-    <Login
+    {<Login
       login={this.login}
       signup={this.signup}
       hover={this.state.loginHover}
-    />
+    />}
     <div className="NavBar" />
     <div className="columns">
       <div className="column is-ancestor is-6">

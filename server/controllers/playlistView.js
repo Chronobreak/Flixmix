@@ -1,6 +1,6 @@
 const model = require('../models/playlistView')
 const axios = require('axios');
-const youtubeKey = process.env.YOUTUBE_KEY;
+const youtubeKey = require('../../config/mitch_youtube_api_key').YOUTUBE_KEY;
 
 module.exports = {
   getPlaylistFromUrl: (req, res) => {
