@@ -1,6 +1,6 @@
 const model = require('../models/playlistView')
 const axios = require('axios');
-const config = require('../../config/config.js');
+// const config = require('../../config/config.js');
 const youtubeKey = process.env.YOUTUBE_KEY;
 
 module.exports = {
