@@ -1,77 +1,54 @@
-FlixMix
-===========
+## FlixMix
+Craft and share movie playlists for your friends
 
-The one stop shop to search for movies and share curated playlists with friends. 
+## Installation and Setup Instructions
+You can access this application here: http://flixmix.andrewmitchell.io/
 
-Team
-================
+If you'd rather view this application on your local machine, you'll need node and npm installed globally.
 
-- Product Owner: David Kim
-- Scrum Master: Guillermo Adrian
-- Development Team Members: Ana Vasquez, Andrew Mitchell
+Installation:
+`npm install`
 
-View
-================
+To Start Server: 
+`npm run dev-start`
 
-[FlixMix](http://flixmix.herokuapp.com/) ��
+To Compile Front End:
+`npm run react-dev`
 
-Features
-============== 
-- Browse for your favorite movies and curate playlists of your top picks ♥️
-- Swap or rearrange movies with the drag and drop playlist
-- Create a shortlink of your playlist to share with friends
-- Watch YouTube trailers and review movies 
-- Explore popular playlist of other users
-
-Built With
-----------
-
-* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Bulma](https://bulma.io/documentation/layout/container/)
-* [React](https://reactjs.org/)
-* [React Tooltip](https://www.npmjs.com/package/react-tooltip)
-* [React YouTube](https://www.npmjs.com/package/react-youtube)
-* [MySQL](https://www.npmjs.com/package/node-mysql)
-* [Express](https://expressjs.com/)
-* [Express Sessions](https://www.npmjs.com/package/express-session)
-* [Heroku](https://heroku.com)
-* [ClearDB](http://w2.cleardb.net/)
+To Visit Local App:
+`localhost:3000`
 
 
-Configuration
--------------
+##Screenshots 
 
-Start by cloning this repository in your terminal
-```
-$ git clone https://github.com/Kingdom-of-Gondor/Flixmix/.
-```
-```
-run npm install
-```
-```
-npm run dev-start
-```
-```
-npm run react-dev
-```
+![Alt text](https://media.giphy.com/media/5hs0zfQwKk2swMG5yN/giphy.gif "Home Page")
+Search for movies and create a playlist
 
 
-Running the Application
------------------------
+![Alt text](https://media.giphy.com/media/3ZZanjywkz88GA6UCr/giphy.gif "Playlist Creation")
+Confirm the order of your playlist and give it a name
 
-```
-Open your default browser and run localhost:3000
-```
+![Alt text](https://media.giphy.com/media/d5zCxr7RfolkL46AgU/giphy.gif "Playlist View")
+Access your playlist view the unique link provided
+
+![Alt text](https://media.giphy.com/media/5kFmadkTViKUR85ayS/giphy.gif "Playlist Comment")
+Let the playlist creator know what you thought of the movie!
 
 
-Screenshots
------------
+## Technologies
+- React
+- Node
+- Express
+- MySQL
+- AWS
 
-![Search Results Page](https://i.imgur.com/9VosCX8.jpg)
+## Reflection
+This core premise behind this application is a playlist generator for movies.  You can create and share the movie playlists, explore others playlists and let the playlist creator know what you thought about the movie they recommended.
 
-![Link Creation Page](https://i.imgur.com/Y7MAlnL.png)
+The technologies used for this project are listed above.  Movie data is accessed via The Movie DB's API (https://www.themoviedb.org/) and trailers are rendered via the YouTube Data API.  The application is deployed on an AWS EC2 and AWS MySQL RDS instance.  
 
-![Review Page](https://i.imgur.com/EmpPYLm.jpg)
+A key insight into the world of software engineering gained with this project relates to prioritization.  There were so many new features I hoped to build and so many tweeks to the code to improve the application from a technical perspective I hoped to finish.  Unfortunately, these had to be prioritized against other items on my personal backlog.  In software engineering it is rare where you find a completely polished product and if it is found, there is an argument that you were not iterating or pushing forward quickly enough.  In developing any product it is key to know when to release the product, get feedback and iterate accordingly.
 
-![Explore Page](https://i.imgur.com/bNPRkuD.jpg)
+
+### Thanks for taking a look!  Have fun creating some mixing your flix!
+
