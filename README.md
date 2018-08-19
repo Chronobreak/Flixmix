@@ -51,5 +51,5 @@ A key insight into the world of software engineering gained with this project re
 
 
 ### Thanks for taking a look!  Have fun mixing your flix! 
-                                ...aka creating playlists :)
+...aka creating playlists :)
 
