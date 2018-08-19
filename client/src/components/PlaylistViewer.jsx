@@ -42,26 +42,29 @@ class PlaylistView extends React.Component {
 
   //this function is also no longer used, in a previous state of the app
   //it would tell you how many characters you have left for your comment
-  handleCommentChange(event) {
+  handleCommentChange(event, index) {
+    let commentKey = `${index}Comment`;
+    let charsLeft = `${index}CharsLeft`
     this.setState({
-      currentComment: event.target.value,
-      charactersLeft: 250 - event.target.value.length
+      [charsLeft]: 250 - this.state[commentKey].length,
+      [commentKey]: event.target.value
     });
   }
 
   //this was also used in a previous state of the app, but is ready to use to submit a comment to the db
-  handleCommentSubmit(event, index, messageText) {
+  handleCommentSubmit(event, index) {
     event.preventDefault();
+    let commentKey = `${index}Comment`;
+    let charsLeft = `${index}CharsLeft`
 
     //set up all variables we'll use in this function
     let currentMovieId = this.state.movies[index].movies_id;
     let currentUserId = this.props.user_id || 1;
     let currentUsername = this.props.username || "Anon";
+    let messageText = this.state[commentKey];
     let playlistAuthorId = this.state.playlistDetails.playlistCreatorId;
     let movieReviewed = this.state.movies[index].original_title.slice(0,30);
-    let message = `${currentUsername} thought this about ${movieReviewed}: ${
-      this.state.currentComment
-    }`;
+    let message = `${currentUsername} thought this about ${movieReviewed}: ${messageText}`;
 
 
 
@@ -96,8 +99,8 @@ class PlaylistView extends React.Component {
         );
       });
       this.setState({
-        charactersLeft: 250,
-        currentComment: "",
+        [charsLeft]: 250,
+        [commentKey]: "",
       });
 
   }
@@ -148,6 +151,15 @@ class PlaylistView extends React.Component {
       })
       .then(({ data }) => {
         this.fetchUsers();
+        //we need somewhere to control the comment for each tile
+        data.forEach((movie, index) => {
+          let commentKey = `${index}Comment`;
+          let charsLeft = `${index}CharsLeft`
+          this.setState({
+            [commentKey]: '',
+            [charsLeft]: 250
+          });
+        });
         this.setState({ movies: data });
       });
   }
@@ -220,6 +232,8 @@ class PlaylistView extends React.Component {
             {this.state.author ? `by ${this.state.author}` : null}
           </span>
           {this.state.movies.map((movie,index) => {
+            let commentKey = `${index}Comment`;
+            let charsLeft = `${index}CharsLeft`
             return (
               <div
                 key={movie.movies_id}
@@ -255,8 +269,8 @@ class PlaylistView extends React.Component {
                     <form onSubmit={(e)=>this.handleCommentSubmit(e, index)}>
                       <label className="subtitle" style={{ marginTop: "10px" }}>
                       Let us know what you thought after you watch! <br />
-                      <small> Characters left: {this.state.charactersLeft}</small>
-                      <input className="textarea movie-comment" type="text" value={this.state.currentComment} onChange={this.handleCommentChange} />
+                      <small> Characters left: {this.state[charsLeft]}</small>
+                      <input className="textarea movie-comment" type="text" value={this.state[commentKey]} onChange={(e)=>this.handleCommentChange(e, index)} />
                       <input type="submit" value="Submit" className="button is-warning" style={{ marginTop: "10px" }}/>
                       </label>
                     </form> 

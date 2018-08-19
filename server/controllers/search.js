@@ -1,6 +1,6 @@
 const axios = require('axios')
-// const config = require('../../config/config.js');
-const API = process.env.MOVIE_KEY;
+const config = require('../../config/config.js');
+const API = config.MOVIE_KEY;
 
 // Search component controller
 // Search component => server/routes.js => server/controllers.search.js
