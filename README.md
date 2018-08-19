@@ -45,7 +45,7 @@ Let the playlist creator know what you thought of the movie!
 ## Reflection
 This core premise behind this application is a playlist generator for movies.  You can create and share the movie playlists, explore others playlists and let the playlist creator know what you thought about the movie they recommended.
 
-The technologies used for this project are listed above.  Movie data is accessed via The Movie DB's API (https://www.themoviedb.org/) and trailers are rendered via the YouTube Data API.  The application is deployed on an AWS EC2 and AWS MySQL RDS instance.  
+The technologies used for this project are listed above.  Movie data is accessed via The Movie DB's API (https://www.themoviedb.org/) and trailers are rendered via the YouTube Data API (https://developers.google.com/youtube/v3/).  The application is deployed on an AWS EC2 and AWS MySQL RDS instance.  
 
 A key insight into the world of software engineering gained with this project relates to prioritization.  There were so many new features I hoped to build and so many tweeks to the code to improve the application from a technical perspective I hoped to finish.  Unfortunately, these had to be prioritized against other items on my personal backlog.  In software engineering it is rare where you find a completely polished product and if it is found, there is an argument that you were not iterating or pushing forward quickly enough.  In developing any product it is key to know when to release the product, get feedback and iterate accordingly.
 
