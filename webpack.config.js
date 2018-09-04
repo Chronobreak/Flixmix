@@ -11,13 +11,13 @@ module.exports = {
   module : {
     rules : [
       {
-        test : /\.jsx?/,
-        include : SRC_DIR,
-        loader : 'babel-loader',      
-        query: {
-          presets: ['react', 'env']
-        }
+        test: /\.(js|jsx)/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],      
       }
     ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   }
 };
