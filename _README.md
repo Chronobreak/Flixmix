@@ -1,11 +1,10 @@
 # FLIXMIX
 
 > A social app for sharing movie recommendations.
-> 
 
 ## Team
 
-  - __Product Owner__: David Kim
+  - __Product Manager__: David Kim
   - __Scrum Master__: G. Adrian
   - __Development Team Members__: Ana Vasquez, Andrew Mitchell
 
