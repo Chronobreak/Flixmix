@@ -1,5 +1,5 @@
 # FLIXMIX
-Craft and share movie playlists for your friends.
+Curate and share movie playlists for your friends.
 
 ## Installation and Setup Instructions
 
@@ -20,7 +20,7 @@ npm run dev-start
 
 ## Walkthrough
 
-  ### Search for movies and create a playlist. Name your playlist and reorder items using draggable components.
+  ### Search for movies and create a playlist - maybe Halloween themed, based around an actor or director's work, or a certain era. Name your playlist and reorder items using draggable components.
   ![Home Page](https://i.imgur.com/9VosCX8.jpg)
 
   ### Once your playlist is confirmed, you will be provided with a unique, shortened URL, used to access or share your playlist.
