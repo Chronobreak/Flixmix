@@ -18,7 +18,7 @@ npm run dev-start
 ```
 
 
-## Screenshots 
+## Walkthrough
 
 ![Home Page](https://i.imgur.com/9VosCX8.jpg)
 
