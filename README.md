@@ -3,7 +3,7 @@ Craft and share movie playlists for your friends.
 
 ## Installation and Setup Instructions
 
-Clone this repo to your local machine following the steps below, then navigate to `localhost:3000`.
+Clone this repo to your local machine following the steps below and navigate to `localhost:3000`.
 ```
 $ git clone https://github.com/Chronobreak/Flixmix/
 ```
