@@ -22,18 +22,18 @@ npm run dev-start
 
 ![Home Page](https://i.imgur.com/9VosCX8.jpg)
 
-  #### Search for movies and create a playlist.
-  #### Name your playlist and reorder using draggable components.
+  ### Search for movies and create a playlist.
+  ### Name your playlist and reorder using draggable components.
 
 ![Playlist Creation](https://i.imgur.com/Y7MAlnL.png)
 
-  #### Once your playlist is confirmed, you will be provided with a unique, shortened URL.
-  #### Access or share your playlist via the URL provided.
+  ### Once your playlist is confirmed, you will be provided with a unique, shortened URL.
+  ### Access or share your playlist via the URL provided.
 
 ![Playlist View](https://i.imgur.com/EmpPYLm.jpg)
 
-  #### Hover over the poster to load the YouTube trailer.
-  #### Leave a comment to let the playlist creator know what you thought of the movie!
+  ### Hover over the poster to load the YouTube trailer.
+  ### Leave a comment to let the playlist creator know what you thought of the movie!
 
 ## Technologies
 
