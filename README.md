@@ -1,4 +1,4 @@
-## FLIXMIX
+# FLIXMIX
 Craft and share movie playlists for your friends.
 
 ## Installation and Setup Instructions
