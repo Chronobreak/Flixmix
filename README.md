@@ -2,9 +2,6 @@
 Craft and share movie playlists for your friends
 
 ## Installation and Setup Instructions
-You can access this application here: http://flixmix.andrewmitchell.io/
-
-If you'd rather view this application on your local machine, you'll need node and npm installed globally.
 
 Installation:
 `npm install`
