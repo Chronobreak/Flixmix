@@ -20,7 +20,7 @@ npm run dev-start
 
 ## Walkthrough
 
-  ### Search for movies and create a playlist. Name your playlist and reorder using draggable components.
+  ### Search for movies and create a playlist. Name your playlist and reorder items using draggable components.
   ![Home Page](https://i.imgur.com/9VosCX8.jpg)
 
   ### Once your playlist is confirmed, you will be provided with a unique, shortened URL, used to access or share your playlist.
