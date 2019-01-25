@@ -21,14 +21,14 @@ npm run dev-start
 ## Walkthrough
 
   ### Search for movies and create a playlist - maybe Halloween themed, based around an actor or director's work, or a certain era. Name your playlist and reorder items using draggable components.
-  ![Home Page](https://i.imgur.com/9VosCX8.jpg)
+  ![Home Page](https://imgur.com/rzIAlKG.jpg)
 
   ### Once your playlist is confirmed, you will be provided with a unique, shortened URL, used to access or share your playlist.
-  ![Playlist Creation](https://i.imgur.com/Y7MAlnL.png)
+  ![Playlist Creation](https://imgur.com/gpiPwAf.jpg)
 
   
   ### Hover over the poster to load the YouTube trailer. Leave a comment to let the playlist creator know what you thought of the movie!
-  ![Playlist View](https://i.imgur.com/EmpPYLm.jpg)
+  ![Playlist View](https://imgur.com/SNvKB86.jpg)
 
 ## Technologies
 
