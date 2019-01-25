@@ -36,7 +36,6 @@ npm run dev-start
 * [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [Express Sessions](https://www.npmjs.com/package/express-session)
 * [MySQL](https://www.npmjs.com/package/node-mysql)
 * [Webpack](https://webpack.js.org/), [Babel](https://babeljs.io/)
-* [AWS](https://aws.amazon.com/)
 
 ## Team
 
